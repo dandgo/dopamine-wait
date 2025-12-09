@@ -31,13 +31,29 @@ Add the following to your `~/.claude/settings.json` (or wherever your Claude Cod
 ```json
 {
   "hooks": {
-    "UserPromptSubmit": {
-      "command": "node /path/to/dopamine-wait/dopamine.js start",
-      "detach": true
-    },
-    "Stop": {
-      "command": "node /path/to/dopamine-wait/dopamine.js stop"
-    }
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /path/to/dopamine-wait/dopamine.js start",
+            "detach": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /path/to/dopamine-wait/dopamine.js stop"
+          }
+        ]
+      }
+    ]
   }
 }
 ```
